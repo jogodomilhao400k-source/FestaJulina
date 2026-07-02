@@ -1,0 +1,115 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-cream: var(--cream);
+  --color-ember: var(--ember);
+  --color-corn: var(--corn);
+  --color-leaf: var(--leaf);
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Nunito", system-ui, sans-serif;
+}
+
+:root {
+  --radius: 1rem;
+  --cream: oklch(0.97 0.03 85);
+  --ember: oklch(0.62 0.19 35);
+  --corn: oklch(0.82 0.17 85);
+  --leaf: oklch(0.55 0.15 145);
+
+  --background: oklch(0.97 0.03 85);
+  --foreground: oklch(0.22 0.05 40);
+  --card: oklch(1 0.01 85);
+  --card-foreground: oklch(0.22 0.05 40);
+  --popover: oklch(1 0.01 85);
+  --popover-foreground: oklch(0.22 0.05 40);
+  --primary: oklch(0.55 0.22 30);
+  --primary-foreground: oklch(0.98 0.02 85);
+  --secondary: oklch(0.82 0.17 85);
+  --secondary-foreground: oklch(0.22 0.05 40);
+  --muted: oklch(0.93 0.03 80);
+  --muted-foreground: oklch(0.45 0.05 40);
+  --accent: oklch(0.55 0.15 145);
+  --accent-foreground: oklch(0.98 0.02 85);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.98 0.02 85);
+  --border: oklch(0.88 0.04 70);
+  --input: oklch(0.88 0.04 70);
+  --ring: oklch(0.55 0.22 30);
+
+  --gradient-warm: linear-gradient(135deg, oklch(0.62 0.19 35) 0%, oklch(0.72 0.19 55) 50%, oklch(0.82 0.17 85) 100%);
+  --shadow-warm: 0 20px 50px -20px oklch(0.55 0.22 30 / 0.5);
+  --shadow-card: 0 8px 30px -12px oklch(0.4 0.1 40 / 0.25);
+}
+
+.dark {
+  --background: oklch(0.2 0.03 40);
+  --foreground: oklch(0.97 0.03 85);
+  --card: oklch(0.25 0.04 40);
+  --card-foreground: oklch(0.97 0.03 85);
+  --primary: oklch(0.72 0.2 45);
+  --primary-foreground: oklch(0.2 0.03 40);
+  --border: oklch(0.35 0.05 40);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+}
+
+@utility bunting {
+  background-image: repeating-linear-gradient(
+    90deg,
+    oklch(0.62 0.19 35) 0 24px,
+    transparent 24px 32px,
+    oklch(0.82 0.17 85) 32px 56px,
+    transparent 56px 64px,
+    oklch(0.55 0.15 145) 64px 88px,
+    transparent 88px 96px
+  );
+  mask-image: repeating-linear-gradient(
+    90deg,
+    black 0 24px,
+    transparent 24px 32px
+  );
+}
+
+/* Hide Lovable badge */
+#lovable-badge,
+#lovable-badge-v2,
+[id^="lovable-badge"],
+a[href*="lovable.dev"][target="_blank"] {
+  display: none !important;
+}
