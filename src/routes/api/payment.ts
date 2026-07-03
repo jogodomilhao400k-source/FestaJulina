@@ -10,7 +10,9 @@ export default async function handler(
   res: VercelResponse
 ) {
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "Método não permitido" });
+    return res.status(405).json({
+      error: "Método não permitido",
+    });
   }
 
   try {
@@ -41,11 +43,12 @@ export default async function handler(
       init_point: response.init_point,
       sandbox_init_point: response.sandbox_init_point,
     });
-  } catch (error) {
-    console.error(error);
+  } catch (err) {
+    console.error(err);
+
     return res.status(500).json({
       success: false,
-      error,
+      error: err,
     });
   }
 }
